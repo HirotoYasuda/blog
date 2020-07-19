@@ -3,7 +3,12 @@
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
+  <%= image_tag url_for(@user.avatar.variant(resize_to_limit: [50, 50])) %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+
+<%= render 'users/modal_form_avatar' %>
+<%= yield(:modalName) %>
